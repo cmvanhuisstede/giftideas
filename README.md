@@ -1,4 +1,4 @@
-# Kado ideeën
+# Gift ideas
 
 This is a static Vercel site backed by Supabase. Visitors can view and claim/unclaim gifts without an account. Only the account registered in `owner_settings` can create gifts or upload cover images.
 
