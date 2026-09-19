@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kado ideeën</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="#top" aria-label="Kado ideeën home">Kado ideeën<span class="wordmark-dot">.</span></a>
+        <div class="header-side">
+          <button class="add-button" id="open-modal" type="button"><span>+</span> Nieuw idee</button>
+        </div>
+      </header>
+
+      <section class="intro" id="top">
+        <h1>Dingen waar ik<br />blij van word.</h1>
+        <div class="stats"><span id="idea-count">0 ideeën</span><i></i><span id="claimed-count">0 uitgekozen</span></div>
+      </section>
+
+      <section id="gift-grid" class="gift-grid" aria-label="Cadeau ideeën"></section>
+    </main>
+
+    <dialog class="gift-modal" id="gift-modal" aria-labelledby="modal-title">
+      <form id="gift-form" method="dialog">
+        <div class="modal-header">
+          <div><p class="eyebrow">Voor de jarige</p><h2 id="modal-title">Nieuw kado idee</h2></div>
+          <button class="close-modal" id="close-modal" type="button" aria-label="Sluiten">×</button>
+        </div>
+        <label>Wat is het?<input id="gift-title" name="title" placeholder="Bijv. Een mooie vaas" required maxlength="70" /></label>
+        <label>Waar is het te vinden?<input id="gift-link" name="link" type="url" placeholder="https://…" required /></label>
+        <div class="image-field">
+          <span class="field-label">Cover image <small>optioneel</small></span>
+          <label class="upload-zone" for="gift-image">
+            <span class="upload-icon">↗</span><span><strong>Kies een afbeelding</strong><small>of laat de website-preview gebruiken</small></span>
+            <input id="gift-image" name="image" type="file" accept="image/*" />
+          </label>
+          <div class="preview-wrap" id="preview-wrap" hidden><img id="image-preview" alt="Voorbeeld cover" /><button type="button" id="remove-image">Verwijderen</button></div>
+        </div>
+        <p class="form-note">Zonder eigen afbeelding gebruiken we een preview van de link.</p>
+        <button class="save-button" type="submit">Idee toevoegen <span>→</span></button>
+      </form>
+    </dialog>
+
+    <dialog class="owner-modal" id="owner-modal" aria-labelledby="owner-title">
+      <form id="owner-form" method="dialog">
+        <button class="close-modal owner-close" id="owner-close" type="button" aria-label="Sluiten">×</button>
+        <p class="eyebrow">Alleen voor jou</p><h2 id="owner-title">Even inloggen</h2>
+        <p class="owner-copy">Log in met je eigenaar-account om een nieuw idee toe te voegen.</p>
+        <label>E-mailadres<input id="owner-email" type="email" autocomplete="email" required /></label>
+        <label>Wachtwoord<input id="owner-password" type="password" autocomplete="current-password" required /></label>
+        <p class="owner-error" id="owner-error" role="alert"></p>
+        <button class="save-button" type="submit">Verder <span>→</span></button>
+      </form>
+    </dialog>
+
+    <template id="gift-template">
+      <article class="gift-card">
+        <a class="card-image-link" target="_blank" rel="noopener noreferrer"><img class="card-image" alt="" /><span class="image-fallback"></span></a>
+        <div class="card-content"><div class="card-topline"><span class="source-label"></span><label class="check-control"><input type="checkbox" /><span class="checkbox" aria-hidden="true">✓</span><span class="sr-only">Markeer als uitgekozen</span></label></div><h2 class="gift-title"></h2><a class="visit-link" target="_blank" rel="noopener noreferrer">Bekijk cadeau <span>↗</span></a></div>
+      </article>
+    </template>
+    <script src="config.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
