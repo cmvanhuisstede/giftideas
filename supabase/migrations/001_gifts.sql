@@ -105,4 +105,4 @@ on storage.objects for delete to authenticated
 using (bucket_id = 'gift-images' and public.is_owner());
 
 -- Once you have created your account in Authentication → Users, run this once:
--- insert into public.owner_settings (user_id) values ('PASTE-YOUR-AUTH-USER-UUID-HERE');
+insert into public.owner_settings (user_id) values ('95f46870-2afd-4aaa-b677-1215cf698b13');
